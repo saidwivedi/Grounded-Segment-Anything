@@ -48,7 +48,7 @@ def write_version_file():
         # f.write(f"git_version = {repr(sha)}\n")
 
 
-requirements = ["torch", "torchvision"]
+requirements = []  # Remove torch/torchvision to avoid version conflicts
 
 torch_ver = [int(x) for x in torch.__version__.split(".")[:2]]
 
