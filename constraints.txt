@@ -1,0 +1,6 @@
+# Constraints file to allow PyTorch versions within a safe range
+# This prevents pip from installing incompatible torch/torchvision versions
+
+torch>=2.1.0,<=2.4.0
+torchvision>=0.16.0,<=0.19.0
+
