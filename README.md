@@ -1,10 +1,35 @@
 ![](./assets/Grounded-SAM_logo.png)
 
 # Grounded-Segment-Anything
+
+> **Note:** This fork includes installation improvements for newer PyTorch/CUDA compatibility. See [Quick Installation](#-quick-installation) for the enhanced setup method. Original repository: [IDEA-Research/Grounded-Segment-Anything](https://github.com/IDEA-Research/Grounded-Segment-Anything)
+
 [![YouTube](https://badges.aleen42.com/src/youtube.svg)](https://youtu.be/oEQYStnF2l8) [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/roboflow-ai/notebooks/blob/main/notebooks/automated-dataset-annotation-and-evaluation-with-grounding-dino-and-sam.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/camenduru/grounded-segment-anything-colab) [![HuggingFace Space](https://img.shields.io/badge/🤗-HuggingFace%20Space-cyan.svg)](https://huggingface.co/spaces/IDEA-Research/Grounded-SAM) [![Replicate](https://replicate.com/cjwbw/grounded-recognize-anything/badge)](https://replicate.com/cjwbw/grounded-recognize-anything)  [![ModelScope Official Demo](https://img.shields.io/badge/ModelScope-Official%20Demo-important)](https://modelscope.cn/studios/tuofeilunhifi/Grounded-Segment-Anything/summary) [![Huggingface Demo by Community](https://img.shields.io/badge/Huggingface-Demo%20by%20Community-red)](https://huggingface.co/spaces/yizhangliu/Grounded-Segment-Anything) [![Stable-Diffusion WebUI](https://img.shields.io/badge/Stable--Diffusion-WebUI%20by%20Community-critical)](https://github.com/continue-revolution/sd-webui-segment-anything) [![Jupyter Notebook Demo](https://img.shields.io/badge/Demo-Jupyter%20Notebook-informational)](./grounded_sam.ipynb) [![Static Badge](https://img.shields.io/badge/GroundingDINO-arXiv-blue)](https://arxiv.org/abs/2303.05499) [![Static Badge](https://img.shields.io/badge/Segment_Anything-arXiv-blue)](https://arxiv.org/abs/2304.02643) [![Static Badge](https://img.shields.io/badge/Grounded_SAM-arXiv-blue)](https://arxiv.org/abs/2401.14159)
 
 
 We plan to create a very interesting demo by combining [Grounding DINO](https://github.com/IDEA-Research/GroundingDINO) and [Segment Anything](https://github.com/facebookresearch/segment-anything) which aims to detect and segment anything with text inputs! And we will continue to improve it and create more interesting demos based on this foundation. And we have already released an overall technical report about our project on arXiv, please check [Grounded SAM: Assembling Open-World Models for Diverse Visual Tasks](https://arxiv.org/abs/2401.14159) for more details.
+
+## 🚀 Quick Installation
+
+> **Note:** This installation method includes dependency constraints to prevent PyTorch version conflicts.
+
+For the most reliable installation that ensures PyTorch compatibility with your CUDA version, use the PyTorch and CUDA version of existing environment. Below are some examples:
+
+```bash
+# For PyTorch 2.1.x with CUDA 11.8
+pip install git+https://github.com/saidwivedi/Grounded-Segment-Anything.git \
+    --constraint <(echo "torch>=2.1.0,<2.2.0"; echo "torchvision>=0.16.0,<0.17.0") \
+    --extra-index-url https://download.pytorch.org/whl/cu118
+
+# For PyTorch 2.4.x with CUDA 12.1
+pip install git+https://github.com/saidwivedi/Grounded-Segment-Anything.git \
+    --constraint <(echo "torch>=2.4.0,<2.5.0"; echo "torchvision>=0.19.0,<0.20.0") \
+    --extra-index-url https://download.pytorch.org/whl/cu121
+```
+
+**Important:** The inline constraints prevent submodules (like `recognize-anything`) from installing newer PyTorch versions that could break CUDA compatibility. Choose the constraint that matches your desired PyTorch version.
+
+---
 
 - 🔥 **[Grounded SAM 2](https://github.com/IDEA-Research/Grounded-SAM-2)** is released now, which combines Grounding DINO with [SAM 2](https://github.com/facebookresearch/segment-anything-2) for any object tracking in open-world scenarios.
 - 🔥 **[Grounding DINO 1.5](https://github.com/IDEA-Research/Grounding-DINO-1.5-API)** is released now, which is IDEA Research's **Most Capable** Open-World Object Detection Model!
@@ -43,6 +68,7 @@ The **core idea** behind this project is to **combine the strengths of different
 
 ## Table of Contents
 - [Grounded-Segment-Anything](#grounded-segment-anything)
+  - [🚀 Quick Installation](#-quick-installation)
   - [Preliminary Works](#preliminary-works)
   - [Highlighted Projects](#highlighted-projects)
 - [Installation](#installation)
@@ -146,6 +172,9 @@ We also list some awesome segment-anything extension projects here you may find 
 - [Tabletop HandyBot: Robotic arm assistant that performs tabletop tasks using Grounded-SAM](https://github.com/ycheng517/tabletop-handybot) by Yifei Cheng
 
 ## Installation
+
+> **⚡ For the quickest and most reliable installation, see our [🚀 Quick Installation](#-quick-installation) method above, which uses constraints to ensure PyTorch compatibility.**
+
 The code requires `python>=3.8`, as well as `pytorch>=1.7` and `torchvision>=0.8`. Please follow the instructions [here](https://pytorch.org/get-started/locally/) to install both PyTorch and TorchVision dependencies. Installing both PyTorch and TorchVision with CUDA support is strongly recommended.
 
 ### Install with Docker
